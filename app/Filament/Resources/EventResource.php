@@ -58,9 +58,8 @@ class EventResource extends Resource
                 TextColumn::make('nama_event')
                     ->searchable(),
 
-                ImageColumn::make('gambar')
-                    ->disk('public')
-                    ->label('Gambar'),
+                ImageColumn::make('gambar'),
+
 
                 TextColumn::make('tanggal'),
 

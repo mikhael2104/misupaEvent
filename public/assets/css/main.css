@@ -1,0 +1,94 @@
+        :root {
+          --main-blue: #143D60;
+          --mid-blue: #27667B;
+          --soft-green: #A0C878;
+          --light-green: #DDEB9D;
+        }
+
+        body {
+          overflow-x: hidden;
+        }
+
+        .navbar-custom {
+          background-color: var(--main-blue);
+        }
+
+        .btn-custom:hover {
+          background-color: var(--light-green);
+          color: #000;
+        }
+
+        .event-card img {
+            height: 180px;
+            object-fit: cover;
+        }
+
+        /* Grid layout untuk menampilkan event secara fleksibel */
+        .event-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        /* Style untuk menampilkan gambar di tengah */
+        .hero-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            height: 400px; /* Sesuaikan dengan tinggi yang diinginkan */
+            background-color: var(--light-green);
+            color: var(--main-blue)
+        }
+
+        .hero-section img {
+            max-height: 300px;
+            object-fit: cover;
+        }
+
+        .event-slider-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-slider {
+            display: flex;
+            gap: 1rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 1rem;
+        }
+
+        .event-slider::-webkit-scrollbar {
+            display: none; /* Hide scrollbar */
+        }
+
+        .event-card {
+            flex: 0 0 calc(100% / 4 - 1rem); /* Maks 4 card per tampilan */
+            min-width: 250px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .slider-button {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            background-color: #143D60;
+            color: white;
+            border: none;
+            padding: 10px;
+            z-index: 10;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .slider-button.left {
+            left: 0;
+        }
+
+        .slider-button.right {
+            right: 0;
+        }
