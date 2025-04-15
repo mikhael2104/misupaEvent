@@ -44,7 +44,7 @@ composer install
 npm install && npm run dev
 
 3. Setup Environtment
-cp .env.example .env
+cp .env.example .env (apabila file env tidak ikut terclone)
 php artisan key:generate
 
 4. Jalankan migrasi dan buat storage link
