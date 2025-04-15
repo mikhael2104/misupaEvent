@@ -42,7 +42,7 @@ class EventResource extends Resource
 
                 DatePicker::make('tanggal')
                     ->required()
-                    ->label('Masukkan Nama Lengkap'),
+                    ->label('Masukkan tanggal event'),
 
                 Textarea::make('informasi')
                     ->required()
@@ -60,11 +60,10 @@ class EventResource extends Resource
 
                 ImageColumn::make('gambar'),
 
-
                 TextColumn::make('tanggal'),
 
                 TextColumn::make('informasi')
-                    ->words(20),
+                    ->limit(10),
             ])
             ->filters([
                 Tables\Filters\TrashedFilter::make(),

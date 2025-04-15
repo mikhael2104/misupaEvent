@@ -5,17 +5,15 @@
     <title>Detail Event - {{ $event->nama_event }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
         :root {
             --main-blue: #143D60;
             --light-blue: #2DB6F0;
             --highlight-green: #C5F01D;
-        }
-
-        .event-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-top: 3rem;
         }
 
         .event-image {
@@ -29,22 +27,12 @@
             border: 2px solid #000;
         }
 
-        .event-details {
-            flex: 2;
-        }
-
-        .section-line {
-            height: 5px;
-            width: 100%;
-            background-color: var(--light-blue);
-            margin-bottom: 0.5rem;
-            border-radius: 5px;
-        }
-
         .event-description p {
             border-left: 3px solid black;
             padding-left: 1rem;
             margin-bottom: 1rem;
+            max-width: 600px;
+            word-break: break-word;
         }
 
         .btn-daftar {
@@ -57,42 +45,37 @@
         }
 
         .btn-daftar:hover {
-            background-color: #b5e217;
+            background-color: var(--light-blue);
         }
     </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="{{ route('home') }}">MisupaEvent</a>
-    </div>
-</nav>
+@extends('layout.header')
 
-<!-- Detail Section -->
-<div class="container event-container">
-    <!-- Gambar di sebelah kiri -->
-    <div class="event-image">
-        <img src="{{ asset('storage/' . $event->gambar) }}" alt="{{ $event->nama_event }}">
-    </div>
+    @section('content')
+        <div class="row vh-100 g-0">
+            <div class="col-md-6 p-0">
+                <img src="{{ asset('storage/' . $event->gambar) }}" alt="{{ $event->nama_event }}" class="full-image w-100 h-100" style="object-fit: cover">
+            </div>
 
-    <!-- Detail konten -->
-    <div class="event-details">
-        <div class="section-line"></div>
-        <h2 class="fw-bold">{{ $event->nama_event }}</h2>
+            <!-- Detail konten -->
+            <div class="col-md-6 d-flex flex-column justify-content-start p-5">
+                <h2 class="fw-bold fs-1">{{ $event->nama_event }}</h2>
 
-        <div class="section-line mt-4"></div>
-        <div class="event-description">
-            <p>{{ $event->informasi }}</p>
+                <div class="section-line mt-4"></div>
+                <div class="event-description">
+                    <p>{{ $event->informasi }}</p>
+                </div>
+
+                <div class="mt-5">
+                    <h4 class="fw-semi-bold">Tangggal Event: {{ $event->tanggal }}</h2>
+                </div>
+
+                <a href="{{ route('pendaftaran.form') }}" class="btn btn-info mt-4">Daftar Sekarang</a>
+            </div>
         </div>
-
-        <a href="{{ route('pendaftaran.form') }}" class="btn btn-daftar mt-4">Daftar Sekarang</a>
-    </div>
-</div>
-
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    @endsection
 
 </body>
 </html>

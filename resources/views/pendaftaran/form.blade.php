@@ -32,6 +32,9 @@
     </style>
 </head>
 <body class="bg-light">
+
+@include('layout.header')
+
 <div class="container mt-5">
     <div class="row">
         <!-- Form di kiri -->
@@ -77,7 +80,11 @@
                     </div>
 
                     <button type="submit" class="btn btn-primary">Daftar</button>
-                    <button class="btn"><a href="{{ route('home') }}">Kembali</a></button>
+                    <button class="btn">
+                        <a href="{{ route('home') }}" class="text-decoration-none ">
+                            Kembali
+                        </a>
+                    </button>
                 </form>
             </div>
         </div>
@@ -85,6 +92,7 @@
         <!-- Kartu event di kanan -->
         <div class="col-md-7">
             <h4 class="mb-3">Daftar Event</h4>
+            <a href="{{ route('event.show', $event->id_event) }}" class="text-decoration-none text-dark">
             <div class="event-section">
                 @foreach($events as $event)
                     <div class="card event-card">
@@ -95,6 +103,7 @@
                     </div>
                 @endforeach
             </div>
+            </a>
         </div>
     </div>
 </div>

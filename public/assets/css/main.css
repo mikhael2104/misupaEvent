@@ -26,8 +26,9 @@
         /* Grid layout untuk menampilkan event secara fleksibel */
         .event-section {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1rem;
+            text-decoration: none;
         }
 
         /* Style untuk menampilkan gambar di tengah */
@@ -66,10 +67,11 @@
 
         .event-card {
             flex: 0 0 calc(100% / 4 - 1rem); /* Maks 4 card per tampilan */
-            min-width: 250px;
+            min-width: 100px;
             border: 1px solid #ccc;
             border-radius: 8px;
             overflow: hidden;
+            text-decoration: none;
         }
 
         .slider-button {
@@ -91,4 +93,8 @@
 
         .slider-button.right {
             right: 0;
+        }
+
+        .left-box{
+            max-width: 500px;
         }

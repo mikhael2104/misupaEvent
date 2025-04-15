@@ -11,29 +11,7 @@
     
 </head>
 <body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="{{ route('home') }}">MisupaEvent</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link fw-bold text-light" href="{{ route('home') }}">Beranda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link fw-bold text-light" href="{{ route('pendaftaran.form') }}">Daftar Event</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
+@include('layout.header')
 <!-- Hero Section -->
 <div class="hero-section">
     <h1 class="display-4 fw-bold">Selamat Datang di MisupaEvent!</h1>
@@ -51,7 +29,7 @@
         <div class="event-slider" id="eventSlider">
             @foreach($events as $event)
                 <div class="card event-card">
-                    <a href="{{ route('event.show', $event->id_event) }}">
+                    <a href="{{ route('event.show', $event->id_event) }}" class="text-decoration-none text-dark">
                         <img src="{{ asset('storage/' . $event->gambar) }}" class="card-img-top" alt="{{ $event->nama_event }}">
                         <div class="card-body">
                             <h5 class="card-title">{{ $event->nama_event }}</h5>
